@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'MEDeclarativeTable', :exclusive => true do
+  pod "MEDeclarativeTable", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "MEDeclarativeTable", :path => "../"
+
+  
+end
