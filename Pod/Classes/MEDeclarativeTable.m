@@ -10,6 +10,8 @@
 
 @interface MEDeclarativeTable ()
 @property (nonatomic, strong) NSMutableArray *mutableSections;
+- (MEDeclarativeTableSection *)sectionAtIndex:(NSInteger)index;
+- (MEDeclarativeTableRow *)rowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation MEDeclarativeTable
@@ -46,14 +48,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    MEDeclarativeTableSection *section = [self sectionAtIndex:sectionIndex];
     return section.rows.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MEDeclarativeTableSection *section = self.mutableSections[indexPath.section];
-    MEDeclarativeTableRow *row = section.rows[indexPath.row];
+    MEDeclarativeTableRow *row = [self rowAtIndexPath:indexPath];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:row.reuseIdentifier];
     if (!cell) {
@@ -79,7 +80,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
-    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    MEDeclarativeTableSection *section = [self sectionAtIndex:sectionIndex];
     if (section.headerTitle) {
         return section.headerTitle;
     } else {
@@ -89,7 +90,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)sectionIndex
 {
-    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    MEDeclarativeTableSection *section = [self sectionAtIndex:sectionIndex];
     if (section.footerTitle) {
         return section.footerTitle;
     } else {
@@ -98,8 +99,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    MEDeclarativeTableSection *section = self.mutableSections[indexPath.section];
-    MEDeclarativeTableRow *row = section.rows[indexPath.row];
+    MEDeclarativeTableRow *row = [self rowAtIndexPath:indexPath];
     if (row.commitEditingStyle) {
         return YES;
     } else {
@@ -108,8 +108,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    MEDeclarativeTableSection *section = self.mutableSections[indexPath.section];
-    MEDeclarativeTableRow *row = section.rows[indexPath.row];
+    MEDeclarativeTableRow *row = [self rowAtIndexPath:indexPath];
     if (row.commitEditingStyle) {
         row.commitEditingStyle(editingStyle, indexPath);
     }
@@ -119,8 +118,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MEDeclarativeTableSection *section = self.mutableSections[indexPath.section];
-    MEDeclarativeTableRow *row = section.rows[indexPath.row];
+    MEDeclarativeTableRow *row = [self rowAtIndexPath:indexPath];
     if (row.customView) {
         if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, row.customViewInsets)) {
             row.customView.frame = UIEdgeInsetsInsetRect(cell.contentView.bounds, row.customViewInsets);
@@ -132,15 +130,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MEDeclarativeTableSection *section = self.mutableSections[indexPath.section];
-    MEDeclarativeTableRow *row = section.rows[indexPath.row];
+    MEDeclarativeTableRow *row = [self rowAtIndexPath:indexPath];
     return row.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MEDeclarativeTableSection *section = self.mutableSections[indexPath.section];
-    MEDeclarativeTableRow *row = section.rows[indexPath.row];
+    MEDeclarativeTableRow *row = [self rowAtIndexPath:indexPath];
     if (row.didSelectAction) {
         row.didSelectAction();
     }
@@ -148,7 +144,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    MEDeclarativeTableSection *section = [self sectionAtIndex:sectionIndex];
     if (section.headerView) {
         return CGRectGetHeight(section.headerView.bounds);
     } else if (section.headerHeight > 0) {
@@ -160,7 +156,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
-    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    MEDeclarativeTableSection *section = [self sectionAtIndex:sectionIndex];
     if (section.footerView) {
         return CGRectGetHeight(section.footerView.bounds);
     } else if (section.footerHeight > 0) {
@@ -172,7 +168,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    MEDeclarativeTableSection *section = [self sectionAtIndex:sectionIndex];
     if (section.headerView) {
         return section.headerView;
     } else {
@@ -182,12 +178,25 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)sectionIndex
 {
-    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    MEDeclarativeTableSection *section = [self sectionAtIndex:sectionIndex];
     if (section.footerView) {
         return section.footerView;
     } else {
         return nil;
     }
+}
+
+#pragma mark - Private
+
+- (MEDeclarativeTableSection *)sectionAtIndex:(NSInteger)index
+{
+    return self.mutableSections[index];
+}
+
+- (MEDeclarativeTableRow *)rowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MEDeclarativeTableSection *section = self.mutableSections[indexPath.section];
+    return section.rows[indexPath.row];
 }
 
 @end
