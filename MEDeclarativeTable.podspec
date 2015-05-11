@@ -10,19 +10,13 @@
 Pod::Spec.new do |s|
   s.name             = "MEDeclarativeTable"
   s.version          = "0.1.0"
-  s.summary          = "A short description of MEDeclarativeTable."
-  s.description      = <<-DESC
-                       An optional longer description of MEDeclarativeTable
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/MEDeclarativeTable"
+  s.summary          = "Describe the structure of your `UITableView`'s sections and rows in an object oriented way.  Useful for building small and mostly static tables such as forms, settings, menus, etc...  We prefer readability over memory efficiency, so it is not recommended to use this with tables that may have a large number of cells."
+  s.homepage         = "https://github.com/enriquez/MEDeclarativeTable"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Mike Enriquez" => "mike@enriquez.me" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MEDeclarativeTable.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/enriquez/MEDeclarativeTable.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/enriquez'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true

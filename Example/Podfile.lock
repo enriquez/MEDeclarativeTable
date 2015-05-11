@@ -1,0 +1,14 @@
+PODS:
+  - MEDeclarativeTable (0.1.0)
+
+DEPENDENCIES:
+  - MEDeclarativeTable (from `../`)
+
+EXTERNAL SOURCES:
+  MEDeclarativeTable:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MEDeclarativeTable: 566d2ab5c237f7debf2c92f0a0a7de2fd881e007
+
+COCOAPODS: 0.36.4
