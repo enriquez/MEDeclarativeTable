@@ -146,4 +146,48 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
+{
+    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    if (section.headerView) {
+        return CGRectGetHeight(section.headerView.bounds);
+    } else if (section.headerHeight > 0) {
+        return section.headerHeight;
+    } else {
+        return UITableViewAutomaticDimension;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
+{
+    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    if (section.footerView) {
+        return CGRectGetHeight(section.footerView.bounds);
+    } else if (section.footerHeight > 0) {
+        return section.footerHeight;
+    } else {
+        return UITableViewAutomaticDimension;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
+{
+    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    if (section.headerView) {
+        return section.headerView;
+    } else {
+        return nil;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)sectionIndex
+{
+    MEDeclarativeTableSection *section = self.mutableSections[sectionIndex];
+    if (section.footerView) {
+        return section.footerView;
+    } else {
+        return nil;
+    }
+}
+
 @end

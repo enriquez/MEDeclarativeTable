@@ -11,6 +11,10 @@
 @interface MEDeclarativeTableSection : NSObject
 @property (nonatomic, strong) NSString *headerTitle;
 @property (nonatomic, strong) NSString *footerTitle;
+@property (nonatomic, assign) CGFloat headerHeight;
+@property (nonatomic, assign) CGFloat footerHeight;
+@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) UIView *footerView;
 - (NSArray *)rows;
 - (void)addRow:(MEDeclarativeTableRow *)row;
 - (void)setRows:(NSArray *)rows;
