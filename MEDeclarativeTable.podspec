@@ -10,7 +10,8 @@
 Pod::Spec.new do |s|
   s.name             = "MEDeclarativeTable"
   s.version          = "0.1.0"
-  s.summary          = "Describe the structure of your `UITableView`'s sections and rows in an object oriented way.  Useful for building small and mostly static tables such as forms, settings, menus, etc...  We prefer readability over memory efficiency, so it is not recommended to use this with tables that may have a large number of cells."
+  s.summary          = "Describe the structure of your `UITableView`'s sections and rows in an object oriented way."
+  s.description      = "Describe the structure of your `UITableView`'s sections and rows in an object oriented way.  Useful for building small and mostly static tables such as forms, settings, menus, etc...  We prefer readability over memory efficiency, so it is not recommended to use this with tables that may have a large number of cells."
   s.homepage         = "https://github.com/enriquez/MEDeclarativeTable"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
