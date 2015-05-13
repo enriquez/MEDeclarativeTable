@@ -4,6 +4,8 @@ Describe the structure of your `UITableView`'s sections and rows in an object or
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+<img src="http://i.imgur.com/ZENmO6l.png" width="375" height="667">
+
 ## Getting Started
 
 `MEDeclarativeTable` acts as a `UITableViewDataSource` and `UITableViewDelegate` for your `UITableView`.  Once setup, you configure your sections and rows through `MEDeclarativeTable`.
