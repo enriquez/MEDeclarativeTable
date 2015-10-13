@@ -35,6 +35,11 @@
 @interface MEDeclarativeTable : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 /**
+ The table view's scroll delegate
+ */
+@property (nonatomic, assign) id<UIScrollViewDelegate> scrollViewDelegate;
+
+/**
  Add the section to the existing list of sections.
  
  @param section The section to add to the table

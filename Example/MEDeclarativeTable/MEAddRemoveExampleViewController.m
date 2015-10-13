@@ -35,6 +35,7 @@
     
     self.tableView.dataSource = self.declarativeTable;
     self.tableView.delegate   = self.declarativeTable;
+    self.declarativeTable.scrollViewDelegate = self;
 }
 
 - (void)viewWillLayoutSubviews
@@ -121,6 +122,12 @@
     _dynamicSection = [[MEDeclarativeTableSection alloc] init];
     
     return _dynamicSection;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"scrollViewDidScroll: %@", NSStringFromCGPoint(scrollView.contentOffset));
 }
 
 #pragma mark - UIBarButton actions
