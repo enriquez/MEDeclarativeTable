@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0582341E1BCD6B7F00DDBAC4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0582341D1BCD6B7F00DDBAC4 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		058513D21AFF97B500684797 /* MEExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058513D11AFF97B500684797 /* MEExamplesViewController.m */; };
 		058513DE1AFFB52500684797 /* MEBasicExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058513DD1AFFB52500684797 /* MEBasicExampleViewController.m */; };
 		058513E11AFFCCDE00684797 /* MEAddRemoveExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058513E01AFFCCDE00684797 /* MEAddRemoveExampleViewController.m */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0582341D1BCD6B7F00DDBAC4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		058513D01AFF97B500684797 /* MEExamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEExamplesViewController.h; sourceTree = "<group>"; };
 		058513D11AFF97B500684797 /* MEExamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEExamplesViewController.m; sourceTree = "<group>"; };
 		058513DC1AFFB52500684797 /* MEBasicExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEBasicExampleViewController.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				6003F5A8195388D20070C39A /* Images.xcassets */,
+				0582341D1BCD6B7F00DDBAC4 /* Launch Screen.storyboard */,
 				058513DF1AFFCCDE00684797 /* MEAddRemoveExampleViewController.h */,
 				058513E01AFFCCDE00684797 /* MEAddRemoveExampleViewController.m */,
 				6003F59C195388D20070C39A /* MEAppDelegate.h */,
@@ -280,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0582341E1BCD6B7F00DDBAC4 /* Launch Screen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
